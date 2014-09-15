@@ -26,4 +26,5 @@ sin_city = media.Movie("Sin City", "A comic-like story",
                        "https://www.youtube.com/watch?v=nqRRF5y94uE")
 
 movies = [inglourious_basterds, pulp_fiction, kill_bill, django_unchained, reservoir_dogs, sin_city]
-fresh_tomatoes.open_movies_page(movies)
+#fresh_tomatoes.open_movies_page(movies)
+
