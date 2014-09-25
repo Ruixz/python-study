@@ -17,29 +17,8 @@ import commands
 
 # +++your code here+++
 # Write functions and modify main() to call them
-def find_special_file(dirname):
-	filenames = os.listdir(dirname)
-	results = []
-	for filename in filenames:
-		match = re.search(r'__\w+__', filename)
-		if match:
-			path = os.path.join(dirname, filename)
-			results.append(os.path.abspath(path))
-	return results
 
-def copy_dir(paths, dest):
-	if not os.path.exists(dest):
-		os.mkdir(dest)
-	for path in paths:
-		shutil.copy(path, os.path.abspath(dest))
-	
-def copy_zip(paths, zip_name):
-	cmd = 'zip -j ' + zip_name + ' ' + ' '.join(paths)
-	print 'Processing: ' , cmd
-	(status, output) = commands.getstatusoutput(cmd)
-	if status:
-		sys.stderr.write(output)
-		sys.exit(1)
+
 
 def main():
   # This basic command line argument parsing code is provided.
@@ -71,15 +50,6 @@ def main():
 
   # +++your code here+++
   # Call your functions
-  paths = []
-  for dirname in args:
-  	paths = paths + find_special_file(dirname)
-  	if todir:
-  		copy_dir(paths, todir)
-  	elif tozip:
-  		copy_zip(paths, tozip)
-  	else:
-  		print '\n'.join(paths)
   
 if __name__ == "__main__":
   main()
