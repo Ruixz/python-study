@@ -65,7 +65,7 @@ def add_list(list1, list2):
 def has_loop(first):
   """detect if a linked list has a loop."""
   #Node() is dummy class that contains attributes like node
-  if first == None:
+  if first is None:
     return False
   slow = Node(first)
   fast = Node(first)
@@ -77,7 +77,7 @@ def has_loop(first):
     else:
       return False
 
-    if slow == None or fast == None:
+    if slow is None or fast is None:
       return False
     if fast == slow:
       return True
@@ -85,12 +85,12 @@ def has_loop(first):
 def find_beginning(first):
   """Given a circular linked list, implement an algorithm which returns the 
   node at the beginning of the loop."""
-  if first == None:
+  if first is None:
     return None
   slow = Node(first)
   fast = Node(first)
   
-  while fast.next != None and fast.next.next != None:
+  while fast.next is not None and fast.next.next is not None:
     slow = slow.next
     fast = fast.next.next
     if slow == fast:

@@ -5,6 +5,7 @@ import sys
 def remove_duplicates(input_list):
   """Write code to remove duplicates from an unsorted linked list."""
   util_dict = {}
+  output_list = []
   for c in input_list:
     if c not in util_dict:
       util_dict[c] = 1
@@ -102,3 +103,18 @@ def find_beginning(first):
   
   return fast
 
+def palindrome(input_list):
+  """Check if a linked list is a palindrome"""
+  #solution 1:check every element in list
+  length = len(input_list)
+  if length == 1:
+    return True
+  mid = length/2
+  for i in range(mid):
+    if input_list[i] != input_list[length-1-i]:
+      return False
+  if i == mid:
+    return True
+  else:
+    return False
+  #solution 2:reverse the list [::-1]
